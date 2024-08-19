@@ -1,0 +1,25 @@
+{   
+    "Aula1":{
+    "professor": "Jonas",
+    "assunto": "Manipulação de documentos",
+    "lista de alunos": [
+            {"nome": "Bruno"}, {"nome": "Lucas"}, {"nome": "Carlos"}, {"nome": "Yago"}
+    ]
+
+    
+    },
+    "aula2":{
+    "professor": "Renzo",
+    "assunto": "Bancos de dados relacionais",
+    "lista de alunos": [
+            {"nome": "Nilton"}, {"nome": "Izaías"}, {"nome": "Alfredo"}, {"nome": "Moisés"}
+    ]
+    },
+    "aula3":{
+    "professor": "Guilherme",
+    "assunto": "Infraestrutura de redes",
+    "lista de alunos": [
+            {"nome": "Marcos"}, {"nome": "Roberto"}, {"nome": "Leandro"}, {"nome": "Diego"}
+    ]   
+    }
+}
