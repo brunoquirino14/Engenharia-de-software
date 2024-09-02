@@ -1,8 +1,9 @@
 from database import Database
 from helper.writeAJson import writeAJson
+from dataset.datasetMercado import dataset
 
 db = Database(database="mercado", collection="compras")
-#db.resetDatabase()
+db.resetDatabase()
 
 # 1- Média de gasto total:
 #result = db.collection.aggregate([
