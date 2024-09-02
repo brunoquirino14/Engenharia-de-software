@@ -5,14 +5,14 @@ from dataset.datasetMercado import dataset
 db = Database(database="mercado", collection="compras")
 db.resetDatabase()
 
-# 1- Total de valor em vendas por dia:
+# 1- Total de itens vendidos por dia:
 result = db.collection.aggregate([
     {"$unwind": "$produtos"},
-    {"$group": {"_id": {"data": "$data_compra"}, "total": {"$sum": {"$multiply": ["$produtos.quantidade", "$produtos.preco"]}}}},
+    {"$group": {"_id": {"data": "$data_compra"}, "total": {"$sum": "$produtos.quantidade"}}},
     {"$sort": {"_id.data": 1, "total": -1}},
 ])
 
-writeAJson(result, "Total_de_vendas_por_dia")
+writeAJson(result, "1- Total de itens vendidos por dia")
 
 # 2- Produto mais vendido em todas as compras:
 result = db.collection.aggregate([
@@ -21,7 +21,7 @@ result = db.collection.aggregate([
     {"$sort": {"total": -1}},
 ])
 
-writeAJson(result, "Produto_mais_vendido_em_todas_as_compras")
+writeAJson(result, "2- Produto mais vendido em todas as compras")
 
 # 3- Cliente que mais gastou em uma única compra:
 result = db.collection.aggregate([
@@ -31,7 +31,7 @@ result = db.collection.aggregate([
     {"$limit": 1}
 ])
 
-writeAJson(result, "Cliente_que_mais_gastou_em_uma_compra")
+writeAJson(result, "3- Cliente que mais gastou em uma única compra")
 
 # 4- Produtos que tiveram uma quantidade vendida acima de 1 unidade:
 result = db.collection.aggregate([
@@ -41,4 +41,4 @@ result = db.collection.aggregate([
     {"$sort": {"quantidade_total": -1}},
 ])
 
-writeAJson(result, "Produtos_com_quantidade_acima_de_1_unidade")
+writeAJson(result, "4- Produtos que tiveram uma quantidade vendida acima de 1 unidade")
