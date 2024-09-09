@@ -7,7 +7,7 @@ class BookModel:
 
     def create_book(self, titulo:str, autor:str, ano:int, preco:int):
         try:
-            res = self.db.collection.insert_one({"titulo": titulo},{"Autor": autor},{"Ano": ano},{"Preço": preco})
+            res = self.db.collection.insert_one({"titulo": titulo, "autor": autor, "ano": ano, "preco": preco})
             print(f"Livro foi criado com o seguinte ID: {res.inserted_id}")
             return res.inserted_id
         except Exception as e:
@@ -23,9 +23,9 @@ class BookModel:
             print(f"Um erro ocorreu na leitura do livro: {e}")
             return None
 
-    def update_book(self, id: str, titulo: str):
+    def update_book(self, id: str, titulo:str, autor:str, ano:int, preco:int):
         try:
-            res = self.db.collection.update_one({"_id": ObjectId(id)}, {"$set": {"name": titulo}})
+            res = self.db.collection.update_one({"_id": ObjectId(id)}, {"$set": {"titulo": titulo, "autor": autor, "ano": ano, "preco": preco}})
             print(f"Livro atualizado: {res.modified_count} documento modificado")
             return res.modified_count
         except Exception as e:

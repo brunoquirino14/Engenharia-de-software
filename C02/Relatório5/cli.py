@@ -37,19 +37,19 @@ class BooksCLI(SimpleCLI):
         id = input("Escreva o ID: ")
         book = self.book_model.read_book_by_id(id)
         if book:
-            print(f"Titulo: {book['titulo']}")
-            print(f"Autor: {book['autor']}")
-            print(f"Ano: {book['ano']}")
-            print(f"Preço: {book['preco']}")
+            print(f"titulo: {book['titulo']}")
+            print(f"autor: {book['autor']}")
+            print(f"ano: {book['ano']}")
+            print(f"preço: {book['preco']}")
             
 
     def update_book(self):
-        id = input("Escreva o ID: ")
-        name = input("Escreva o titulo: ")
+        id = input("Escreva o ID: ")  # Pegue o ID do livro a ser atualizado
+        titulo = input("Escreva o título: ")
         autor = input("Escreva o autor: ")
-        ano = input("Escreva o ano: ")
-        preco = input("Escreva o preço: ")
-        self.book_model.update_book(id, name, autor, ano, preco)
+        ano = int(input("Escreva o ano: "))
+        preco = float(input("Escreva o preço: "))  # Convertendo para float, caso o preço seja decimal
+        self.book_model.update_book(id, titulo, autor, ano, preco)
 
     def delete_book(self):
         id = input("Escreva o ID: ")

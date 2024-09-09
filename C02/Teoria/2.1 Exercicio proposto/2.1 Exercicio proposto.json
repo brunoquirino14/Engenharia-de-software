@@ -1,0 +1,15 @@
+{
+  "nome":"Kakarotto",
+  "apelido":"Goku",
+  "idade":40,
+  "profissao":"Guerreiro",
+  "parentescos":
+    {
+      "Pai":"Bardock",
+      "Mãe":"Gine",
+      "Irmão":"Radittz",
+      "Esposa":"Chichi",
+      "Filhos":["Gohan","Goten"],
+      "Neta":"Pan"
+    }
+}
