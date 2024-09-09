@@ -1,11 +1,12 @@
 from database import Database
 from writeAJson import writeAJson
-from personModel import PersonModel
-from cli import PersonCLI
+from bookModel import BookModel
+from cli import BooksCLI
 
-db = Database(database="relatorio_05", collection="pessoas")
-personModel = PersonModel(database=db)
+db = Database(database="DbLivros", collection="Livros")
+db.resetDatabase()
+bookModel = BookModel(database=db)
 
 
-personCLI = PersonCLI(personModel)
-personCLI.run()
+BooksCLI = BooksCLI(bookModel)
+BooksCLI.run()
