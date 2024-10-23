@@ -2,7 +2,7 @@ from database import Database
 from school_database import SchoolDatabase
 
 # cria uma instância da classe Database, passando os dados de conexão com o banco de dados Neo4j
-db = Database("bolt://3.235.168.48:7687", "neo4j", "badge-aid-strips")
+db = Database("bolt://44.195.37.158:7687", "neo4j", "slots-dedications-sail")
 db.drop_all()
 
 # Criando uma instância da classe SchoolDatabase para interagir com o banco de dados
