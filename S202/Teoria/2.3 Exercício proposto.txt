@@ -1,0 +1,12 @@
+1)Mostrar somente nome oficial dos paises da região Americas com área menos que 100
+FILTER: {region:"Americas", area:{$lt:100}}
+PROJECT: {"name.official":1}
+
+2)Mostrar somente nome comum, latitude e longitude nos paises que falam Português
+FILTER: {"languages.por": "Portuguese"}
+PROJECT: {"name.common":1,"latlng":1}
+
+3)Mostrar somente nome comum de paises que começam com B e ordenar por area crescente
+FILTER: {"name.common":{$regex: /^B/i}}
+PROJECT: {"name.common":1, area:1}
+SORT: {area:1}

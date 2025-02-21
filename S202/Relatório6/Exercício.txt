@@ -1,0 +1,46 @@
+1)
+1.1	MATCH (n) RETURN n;
+
+1.2 	MATCH (g:Game)
+	WHERE g.ano > 2012
+	RETURN g;
+
+1.3	MATCH (g:Game)
+	WHERE g.genero = 'Terror'
+	RETURN g;
+
+1.4	MATCH (j:Jurado)-[r:JOGOU]->(g:Game)
+	WHERE r.nota >= 7
+	RETURN g, r.nota;
+
+2)
+2.1	CREATE(g:Game{titulo:'Valorant',genero:'Shooter',ano:2020});
+	CREATE(g:Game{titulo:'Among Us',genero:'Party',ano:2018});
+	CREATE(g:Game{titulo:'The Last of Us Part II',genero:'Action-Adventure',ano:2020});
+	CREATE(g:Game{titulo:'Cyberpunk 2077',genero:'RPG',ano:2020});
+
+2.2	CREATE(j:Jurado{nome:'Bruno'});
+	CREATE(j:Jurado{nome:'Lucas'});
+	CREATE(j:Jurado{nome:'Abraao'});
+
+2.3	MATCH (j:Jurado{nome:'Bruno'}), (g:Game{titulo:'Valorant'})
+	CREATE (j)-[:JOGOU{nota:8, horas:300}]->(g);
+
+	MATCH (j:Jurado{nome:'Bruno'}), (g:Game{titulo:'Among Us'})
+	CREATE (j)-[:JOGOU{nota:9, horas:50}]->(g);
+
+	MATCH (j:Jurado{nome:'Lucas'}), (g:Game{titulo:'The Last of Us Part II'})
+	CREATE (j)-[:JOGOU{nota:10, horas:40}]->(g);
+
+	MATCH (j:Jurado{nome:'Lucas'}), (g:Game{titulo:'Cyberpunk 2077'})
+	CREATE (j)-[:JOGOU{nota:7, horas:150}]->(g);
+
+	MATCH (j:Jurado{nome:'Abraao'}), (g:Game{titulo:'Phasmophobia'})
+	CREATE (j)-[:JOGOU{nota:6, horas:20}]->(g);
+
+	MATCH (j:Jurado{nome:'Abraao'}), (g:Game{titulo:'Minecraft'})
+	CREATE (j)-[:JOGOU{nota:10, horas:1000}]->(g);
+
+
+
+

@@ -1,0 +1,17 @@
+
+CREATE
+  (joao:Pessoa:Engenheiro {nome: "João", sexo: "M", idade: 45})-[:CASADO_COM {desde: 2000}]->(maria:Pessoa:Medica {nome: "Maria", sexo: "F", idade: 42}),
+  (joao)-[:PAI_DE]->(ana:Pessoa:Estudante {nome: "Ana", sexo: "F", idade: 18}),
+  (maria)-[:PAI_DE]->(ana),
+  (joao)-[:PAI_DE]->(pedro:Pessoa:Estudante {nome: "Pedro", sexo: "M", idade: 15}),
+  (maria)-[:PAI_DE]->(pedro),
+  (jose:Pessoa:Aposentado {nome: "José", sexo: "M", idade: 70})-[:AVO_DE]->(ana),
+  (jose)-[:AVO_DE]->(pedro),
+  (ana)-[:IRMA_DE]->(pedro),
+  (pedro)-[:IRMAO_DE]->(ana),
+  (joao)-[:DONO_DE]->(bia:Pet:Cachorro {nome: "Bia", sexo: "F", idade: 5}),
+  (maria)-[:DONO_DE]->(luna:Pet:Gato {nome: "Luna", sexo: "F", idade: 3}),
+  (marcelo:Pessoa:Professor {nome: "Marcelo", sexo: "M", idade: 40})-[:CASADO_COM]->(clara:Pessoa:Engenheira {nome: "Clara", sexo: "F", idade: 38}),
+  (marcelo)-[:PAI_DE]->(sofia:Pessoa:Crianca {nome: "Sofia", sexo: "F", idade: 8}),
+  (clara)-[:PAI_DE]->(sofia),
+  (ana)-[:AMIGA_DE]->(sofia);
